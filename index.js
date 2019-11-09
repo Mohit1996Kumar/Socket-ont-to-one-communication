@@ -16,6 +16,7 @@ APP.get('/',(req,res)=>{
 console.log('aaaaaaaaaaa')
 const io = socket(SERVER);
 io.on('connection', function (socket) {
+  console.log('aa');
   
   
   socket.join(socket.handshake.query.person_name); //joining Room
