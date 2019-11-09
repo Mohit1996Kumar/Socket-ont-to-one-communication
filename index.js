@@ -9,7 +9,11 @@ const SERVER = APP.listen(3002, function () {
   console.log("App is running on port number : 3002");
 });
 
+APP.get('/',(req,res)=>{
+  res.send('hello')
+})
 
+console.log('aaaaaaaaaaa')
 const io = socket(SERVER);
 io.on('connection', function (socket) {
   
