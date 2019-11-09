@@ -1,5 +1,6 @@
 
 //  let socket = io.connect('localhost:8023');
+console.log('hello');
 
 var person = prompt("Please enter your name:", "Mohit..");
 
