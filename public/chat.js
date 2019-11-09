@@ -3,7 +3,7 @@
 
 var person = prompt("Please enter your name:", "Mohit..");
 
-let socket = io.connect('http://localhost:8023/?person_name='+person);
+let socket = io.connect('http://localhost:3002/?person_name='+person);
 //Handel Frontend request
 
 document.getElementById("send").addEventListener('click', function () {
