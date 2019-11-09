@@ -3,21 +3,20 @@ const APP = express();
 const socket = require('socket.io');
 
 
-// APP.use(express.static('public'));
+APP.use(express.static('public'));
 
 const SERVER = APP.listen(3002, function () {
   console.log("App is running on port number : 3002");
 });
 
 APP.get('/',(req,res)=>{
-  res.send('hello')
+  res.send(`Welcome to mohit's chat room`)
 })
 
-console.log('aaaaaaaaaaa')
 const io = socket(SERVER);
 io.on('connection', function (socket) {
-  console.log('aa');
-  
+
+  console.log('user connected with name ',socket.handshake.query.person_name );  
   
   socket.join(socket.handshake.query.person_name); //joining Room
   
