@@ -5,7 +5,7 @@ console.log('hello');
 var person = prompt("Please enter your name:", "Mohit..");
 
 // let socket = io.connect('http://localhost:3002/?person_name='+person);
-let socket = io.connect('http://3.14.14.133:3002/?person_name='+person);
+let socket = io.connect('http://3.14.14.133:8080/?person_name='+person);
 
 //Handel Frontend request
 

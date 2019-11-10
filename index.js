@@ -5,8 +5,8 @@ const socket = require('socket.io');
 
 APP.use(express.static('public'));
 
-const SERVER = APP.listen(3002, function () {
-  console.log("App is running on port number : 3002");
+const SERVER = APP.listen(8080, function () {
+  console.log("App is running on port number : 8080");
 });
 
 APP.get('/',(req,res)=>{
