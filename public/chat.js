@@ -16,6 +16,7 @@ document.getElementById("send").addEventListener('click', function () {
     handle: person,
     IP: "123"
   });
+  document.getElementById("message").value = "";
 });
 
 

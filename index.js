@@ -21,7 +21,8 @@ io.on('connection', function (socket) {
   socket.join(socket.handshake.query.person_name); //joining Room
   
   socket.on('chat', function (data) {
-
+    console.log(data);
+    
     socket.emit('my',data);  //to self
     if(data.username)
       socket.to(data.username).emit('chat',data); //emit message to room
