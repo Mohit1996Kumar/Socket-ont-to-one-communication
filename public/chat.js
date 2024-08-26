@@ -2,12 +2,42 @@
 //  let socket = io.connect('localhost:8023');
 console.log('hello');
 
-var person = prompt("Please enter your name:", "Mohit..");
+var auth_token = prompt("Please enter your name:", "Mohit..");
 
 // let socket = io.connect('http://localhost:3002/?person_name='+person);
-let socket = io.connect('http://3.14.14.133:3002/?person_name='+person);
+let socket = io.connect('http://localhost:3001/?token='+auth_token);
+socket.emit('join', {
+  authentication: auth_token
+});
+
 
 //Handel Frontend request
+socket.on('connectionSuccess',(data)=>{
+  console.log('connectionSuccess: ',data)
+  socket.emit('listChats',{
+    token: auth_token
+  })
+})
+
+//Handel Frontend request
+socket.on('error',(error)=>{
+  console.log('Error: ',error)
+})
+
+//Handel Frontend request
+socket.on('listChats',(data)=>{
+  console.log('listChats: ',data)
+})
+
+//Handel Frontend request
+socket.on('newMessage',(data)=>{
+  console.log('listChats: ',data)
+})
+
+
+socket.on('authentication_error',(error)=>{
+  console.log('Authentication Failed: ',error)
+})
 
 document.getElementById("send").addEventListener('click', function () {
   socket.emit('chat', {
